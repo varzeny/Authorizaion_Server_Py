@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Signup</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/thema.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/signup.css">
+    <script src="/static/js/signup.js"></script>
+</head>
+<body>
+    <main>
+        <section class="panel-seq" id="seq-0">
+            <label>Loading...</label>
+        </section>
+
+        <section class="panel-seq" id="seq-1">
+            <label>Enter Your Email</label>
+            <form class="form-seq" method="post" action="/signup/seq">
+                <input type="hidden" name="seq" value="1">
+                <div class="form-row">
+                    <label for="input-email">E-mail</label>
+                    <input type="text" name="email" id="input-email" required>
+                </div>
+                <button class="form-btn" type="submit">Next</button>
+            </form>
+        </section>
+
+        <section class="panel-seq" id="seq-2">
+            <label>Check Your Email</label>
+            <form class="form-seq" method="post" action="/signup/seq">
+                <input type="hidden" name="seq" value="2">
+                <div class="form-row">
+                    <label for="input-code">Code</label>
+                    <input type="text" name="code" id="input-code" required>
+                </div>
+                <button class="form-btn" type="submit">Next</button>
+            </form>
+        </section>
+
+        <section class="panel-seq" id="seq-3">
+            <label>Enter the password you want</label>
+            <form class="form-seq" method="post" action="/signup/seq">
+                <input type="hidden" name="seq" value="3">
+                <div class="form-row">
+                    <label for="input-password">Password</label>
+                    <input type="password" name="pw" id="input-password" required>
+                </div>
+                <button class="form-btn" type="submit">Next</button>
+            </form>
+        </section>
+
+        <section class="panel-seq" id="seq-4">
+            <span>Signup Complete !</span>
+        </section>
+    </main>
+</body>
+</html>

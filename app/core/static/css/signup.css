@@ -1,0 +1,65 @@
+/* signup.css */
+
+body {
+    width: 100%; height: 100%;
+}
+
+main {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .panel-seq {
+        width: 100%; height: 100%;
+        max-width: 500px; max-height: 300px;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+            .panel-seq label {
+                display: inline-block;
+                font-size: 1.5rem;
+            }
+            .form-seq {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+                .form-row {
+                    width: 100%;
+                    display: flex;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+                    .form-row label {
+                        display: inline-block;
+                        width: 30%;
+                        font-size: 1.25rem;
+                        margin-right: 1rem;
+                    }
+                    .form-row input {
+                        width: auto;
+                        font-size: 1.25rem;
+                    }
+                .form-btn {
+                    width: 100%;
+                    font-size: 2rem;
+                }
+
+        #seq-loading {}
+
+        #seq-1 {}
+
+        #seq-complete {}
+            #seq-complete span {
+                font-size: 1.5rem;
+            }
+
