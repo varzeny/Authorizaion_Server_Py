@@ -1,4 +1,4 @@
-# account/api.py
+# api/account.py
 
 # lib
 from fastapi import FastAPI, Depends, HTTPException
@@ -94,13 +94,10 @@ async def post_signup_seq(req:Request, ss:AsyncSession=Depends(DB.get_ss), t=Dep
 @router.get("/login/page")
 async def get_login_page(req:Request, t=Depends(guest_only)):
     try:
-        # referer
-        referer = req.headers.get("referer")
-
         resp = template.TemplateResponse(
             request=req,
             name="login.html",
-            context={"referer":referer},
+            context={},
             status_code=200
         )
 
@@ -115,15 +112,11 @@ async def get_login_page(req:Request, t=Depends(guest_only)):
 @router.post("/login")
 async def post_login(req:Request, ss:AsyncSession=Depends(DB.get_ss), t=Depends(guest_only)):
     try:
-        # referer
-        referer = req.headers.get("referer")
-
         # DB 확인
         reqData = await req.form()
         user = await ACCS.login(reqData.get("email"), reqData.get("pw"), ss)
 
         # 로그인 승인
-        print("!!!!!",t)
         t["id"] = user.get("id")
         t["role"] = user.get("role")
         resp = Response(status_code=200)
@@ -140,10 +133,5 @@ async def post_login(req:Request, ss:AsyncSession=Depends(DB.get_ss), t=Depends(
 @router.get("/logout")
 async def get_logout(req:Request, t=Depends(user_only)):
     req.state.access_token={"role":"guest"}
-    print(req.state.access_token)
     return Response(status_code=200)
 
-
-@router.get("/check")
-async def get_check(req:Request):
-    return Response(status_code=200)

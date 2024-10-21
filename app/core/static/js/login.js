@@ -7,11 +7,6 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
 
-    const referer = document.querySelector("main").dataset.referer;
-
-    console.log(referer);
-
-
     document.addEventListener("submit", async function(event) {
         if(event.target.classList.contains("login-form")){
             event.preventDefault();
